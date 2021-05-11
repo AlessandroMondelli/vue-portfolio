@@ -35,4 +35,9 @@ export default {
   background-color: $primary-color;
   color: $secondary-color;
 }
+
+.section-wrap {
+  width: 80%;
+  margin: 10% auto;
+}
 </style>
