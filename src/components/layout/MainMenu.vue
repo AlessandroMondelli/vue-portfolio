@@ -41,6 +41,14 @@ export default {
         flex-direction: column;
         align-items: center;
 
+        a.router-link-active {
+            
+            .menu-icon {
+                transform: scale(0.90);
+                color: $nav-icons-hover-color;
+            }
+        } 
+
         .menu-icon {
             font-size: $icon-size;
             margin-bottom: 20px;
