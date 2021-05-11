@@ -1,6 +1,8 @@
 <template>
     <nav class="menu">
-        <font-awesome-icon class="menu-icon" v-for="fontIcon in fontIcons" :key="fontIcon" :icon=" fontIcon " />
+        <router-link v-for="link in links" :key="link" :to="link.route">
+            <font-awesome-icon class="menu-icon" :icon="link.icon" />
+        </router-link>
     </nav>
 </template>
 
@@ -18,7 +20,13 @@ export default {
     },
     data() {
         return {
-            fontIcons: [faHome, faUser, faBookOpen, faFolder, faPencilAlt],
+            links: [
+                { route: '/', icon: faHome },
+                { route: 'chi-sono', icon: faUser },
+                { route: 'skills', icon: faBookOpen }, 
+                { route: 'progetti', icon: faFolder }, 
+                { route: 'contattami', icon: faPencilAlt },  
+            ]
         }
     }
 }
