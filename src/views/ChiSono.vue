@@ -17,7 +17,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .section-title {
-        font-size: $h2-font-size;
-    }
 </style>

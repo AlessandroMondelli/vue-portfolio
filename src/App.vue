@@ -25,6 +25,10 @@ export default {
   font-family: 'Montserrat', sans-serif;
 }
 
+p {
+  font-size: 22px;
+}
+
 #all-wrap {
   display: flex;
   flex-wrap: nowrap;
