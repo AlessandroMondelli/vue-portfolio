@@ -5,7 +5,7 @@
         </div>
         <div id="me-photo">
             <div id="photo-wrap"> 
-                <img src="@/assets/me_black_white.png">
+                <img src="@/assets/me_black_white.png" alt="foto Alessandro Mondelli">
             </div>
         </div>
         <div id="linkedin-link">
@@ -89,7 +89,7 @@ export default {
                 transition: $transition-time;
 
                 &:hover {
-                    color: $nav-icons-hover-color;
+                    color: $linkedin-icon-color;
                 }
             }
         }

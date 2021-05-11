@@ -29,6 +29,11 @@ p {
   font-size: 22px;
 }
 
+.section-title {
+  font-size: $h2-font-size;
+  margin-bottom: 50px;
+}
+
 #all-wrap {
   display: flex;
   flex-wrap: nowrap;

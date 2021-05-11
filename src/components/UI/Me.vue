@@ -4,7 +4,7 @@
         <div class="content-container">
             <p>Ciao, mi chiamo Alessandro.</p>
             <p>Sono un Jr. Web Developer di 22 anni, amante dell'informatica e di tutto ciò che la riguarda, amo innovarmi ed imparare nuove tecnologie.</p>
-            <p>Sono diplomato come Tecnico Informatico  all'Istituto Tecnico Tecnologico "G. & M. Montani" e sono specializzato in Sviluppo Web Full Stack tramite Boolean Careers, un corso intensivo da 700 ore dedicato alla programmazione web.</p>
+            <p>Sono diplomato come Tecnico Informatico  all'Istituto Tecnico Tecnologico "G. & M. Montani" e sono specializzato in Sviluppo Web Full Stack tramite Boolean Careers, un corso intensivo di 6 mesi dedicato alla programmazione web.</p>
         <div id="instruction">
             <a href="https://www.istitutomontani.gov.it/nuovo/it/" target="_blank" rel=”noopener”><img id="montani-logo" src="@/assets/logo_montani_nuovo_v4.png" alt="logo Montani" /></a>
             <a href="https://www.boolean.careers/" target="_blank" rel="noopener"><img id="boolean-logo" src="@/assets/logo_boolean.png" alt="logo Boolean" /></a>
@@ -20,11 +20,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .section-title {
-        font-size: $h2-font-size;
-        margin-bottom: 50px;
-    }
-
     .content-container {
 
         p {
