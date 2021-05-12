@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Jumbotron from '../components/layout/Jumbotron.vue'
+import Jumbotron from '../components/UI/Jumbotron.vue'
 
 export default {
   name: 'Home',

@@ -25,8 +25,18 @@ export default {
   font-family: 'Montserrat', sans-serif;
 }
 
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+h3 {
+  font-size: $h3-font-size;
+}
+
 p {
-  font-size: 22px;
+  font-size: $p-font-size;
 }
 
 .section-title {
@@ -41,6 +51,7 @@ p {
 
 #rendered-view {
   width: 95vw;
+  height: 100vh;
   background-color: $primary-color;
   color: $secondary-color;
 }
