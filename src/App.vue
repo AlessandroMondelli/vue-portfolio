@@ -35,6 +35,10 @@ h3 {
   font-size: $h3-font-size;
 }
 
+h4 {
+  font-size: $h4-font-size;
+}
+
 p {
   font-size: $p-font-size;
 }
