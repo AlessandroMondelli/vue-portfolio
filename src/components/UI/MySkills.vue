@@ -4,7 +4,6 @@
         <div class="content-container clearfix">
             <div class="skills-container hard">
                 <hard-skill></hard-skill>
-                <extra-skill></extra-skill>
             </div>
             <div class="skills-container soft">
                 <soft-skills></soft-skills>
@@ -14,14 +13,13 @@
 </template>
 
 <script>
-import SoftSkills from '../UI/SoftSkills.vue'
-import HardSkill from '../UI/HardSkills.vue'
-// import ExtraSkill from '../UI/ExtraSkills.vue'
+import SoftSkills from './Skills/SoftSkills.vue'
+import HardSkill from './Skills/HardSkills.vue'
 
 export default {
     name: 'MySkills',
     components: {
-        SoftSkills, HardSkill, //ExtraSkill
+        SoftSkills, HardSkill
     },
 }
 </script>

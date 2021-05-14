@@ -56,6 +56,7 @@ p {
 #rendered-view {
   width: 95vw;
   height: 100vh;
+  overflow: hidden;
   background-color: $primary-color;
   color: $secondary-color;
 }
