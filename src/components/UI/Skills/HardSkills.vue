@@ -11,7 +11,6 @@ import CodeSkills from './CodeSkills.vue'
 import ExtraSkill from './ExtraSkills.vue'
 
 export default {
-    name: 'HardSkill',
     components: {
         OsSkill, CodeSkills, ExtraSkill
     },

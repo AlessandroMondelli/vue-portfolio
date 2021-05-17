@@ -23,7 +23,6 @@ import { faLinux } from '@fortawesome/free-brands-svg-icons'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 export default {
-    name: 'OsSkill',
     components: {
         FontAwesomeIcon
     },

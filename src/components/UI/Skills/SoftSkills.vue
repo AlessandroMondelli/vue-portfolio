@@ -7,7 +7,6 @@
 
 <script>
 export default {
-    name: 'SoftSkills',
     data() {
         return {
             softSkills: ["Orientamento all'obiettivo", "Team Working", "In continua formazione", "Spirito di Adattamento", "Problem Solving"],

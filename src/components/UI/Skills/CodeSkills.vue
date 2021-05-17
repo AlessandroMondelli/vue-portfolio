@@ -29,7 +29,6 @@ import { faDatabase } from '@fortawesome/free-solid-svg-icons'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 export default {
-    name: 'codeSkill',
     components: {
         FontAwesomeIcon,
     },
