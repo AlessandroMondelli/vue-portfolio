@@ -8,8 +8,8 @@
                 <img src="@/assets/me_black_white.png" alt="foto Alessandro Mondelli">
             </div>
         </div>
-        <div id="linkedin-link">
-            <a href="https://www.linkedin.com/in/alessandro-mondelli-5b15971a1/" target="_blank" rel=”noopener”><font-awesome-icon class="jumbo-icon" :icon="fontLinkedin"/></a>
+        <div class="icon-link">
+            <a href="https://www.linkedin.com/in/alessandro-mondelli-5b15971a1/" target="_blank" rel=”noopener”><font-awesome-icon class="inner-icon" :icon="fontLinkedin"/></a>
         </div>
     </div>
 </template>
@@ -78,19 +78,10 @@ export default {
             
         }
 
-        #linkedin-link {
-            position: absolute;
-            bottom: 1%;
-            right: 1%;
+        .inner-icon {
 
-            .jumbo-icon {
-                font-size: 40px;
-                color: $secondary-color;
-                transition: $transition-time;
-
-                &:hover {
-                    color: $linkedin-icon-color;
-                }
+            &:hover {
+                color: $linkedin-icon-color;
             }
         }
     }

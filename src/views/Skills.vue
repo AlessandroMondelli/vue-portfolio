@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="skills">
         <my-skills></my-skills>
     </div>
 </template>

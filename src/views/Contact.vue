@@ -1,20 +1,19 @@
 <template>
-    <div id="chi-sono">
-        <me></me>
+    <div id="contact">
+        <contact-me></contact-me>
     </div>
 </template>
 
 <script>
-import Me from '../components/UI/Me.vue'
+import ContactMe from '../components/UI/ContactMe.vue'
 
 export default {
-    name: 'ChiSono',
     components: {
-        Me,
+        ContactMe,
     }
-    
 }
 </script>
 
 <style lang="scss" scoped>
+
 </style>

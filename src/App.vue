@@ -65,4 +65,16 @@ p {
   width: 80%;
   margin: 10% auto;
 }
+
+.icon-link {
+    position: absolute;
+    bottom: 1%;
+    right: 1%;
+
+    .inner-icon {
+        font-size: 40px;
+        color: $secondary-color;
+        transition: $transition-time;
+    }
+}
 </style>

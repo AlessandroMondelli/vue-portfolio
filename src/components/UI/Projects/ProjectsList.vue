@@ -1,13 +1,15 @@
 <template>
     <div id="projects-list">
         <ul>
-            <li v-for="project in projects" :key="project" :class="{highlight:project.id == selected}" @click="sendProjectData(project.description, project.video), selected = project.id" class="project">{{ project.nome }}</li>
+            <li v-for="project in projects" :key="project" :class="{highlight:project.id == selected, deactivate:animateStatus == true }" @click="sendProjectData(project.description, project.video), selected = project.id" class="project">{{ project.nome }}</li>
+            <li>E molto altro su Github!</li>
         </ul>
     </div>
 </template>
 
 <script>
 export default {
+    props: ['animateStatus'],
     data() {
         return {
             projects: [
@@ -16,8 +18,8 @@ export default {
                 { id:'3', nome: 'Boolflix', description: 'Applicazione Web simil Netflix, con film più votati in home page e ricerca per avere informazioni riguardo al film o serie tv ricercato, esegue chiamate REST API al database di TheMovieDB', video: require('@/assets/video/demo_boolflix.mp4')},
                 { id:'4', nome: 'BoolPress', description: 'Applicazione Web che simula un blog simil Wordpress, con registrazione utente e CRUD per creare/modificare/eliminare degli articoli' },
                 { id:'5', nome: 'BoolBnB', description: 'Applicazione Web che permette di registrarsi ed inserire appartamenti in vendita/affitto, presente funzione di sponsorizzazione con utilizzo di Braintree, funzione di messaggistica e ricerca di appartamenti in base alla zona ricercata' },
-                { id:'6', nome: 'Tombola', description: 'Applicazione Web che permette di generare un tabellone della tombola, con possibilità di estrarre numeri casuali e di generare una tabellina(realistica) giocabile' },
-                { id:'7', nome: 'COVID-19 Stats', description: 'Applicazione Web per sperimentare AXIOS, permette di effettuare una chiamata REST API per avere informazioni aggiornate sulla situazione COVID-19' },
+                { id:'6', nome: 'Tombola', description: 'Applicazione Web che permette di generare un tabellone della tombola, con possibilità di estrarre numeri casuali e di generare una tabellina(realistica) giocabile', video: require('@/assets/video/demo_tombola.mp4') },
+                { id:'7', nome: 'COVID-19 Stats', description: 'Applicazione Web per sperimentare AXIOS, permette di effettuare una chiamata REST API per avere informazioni aggiornate sulla situazione COVID-19', video: require('@/assets/video/demo_covid.mp4') },
             ],
             selected: undefined,
         }
@@ -25,6 +27,11 @@ export default {
     methods: {
         sendProjectData(description, video) { //Al click su progetto
             this.$emit('open-project', description, video); //Invio a MyProjects.vue
+        }
+    },
+    watch: {
+        animateStatus(newVal) {
+            console.log(newVal);
         }
     }
 }
@@ -36,20 +43,25 @@ export default {
         ul {
             list-style-type: none;
 
-            li {
+            li:not(:last-child) {
                 font-size: 24px;
                 margin-bottom: 25px;
-                transition: $transition-time;
+                transition: ($transition-time - 0.1);
                 cursor: default;
 
                 &.highlight {
                     color: $selected-color;
+                    font-weight: 600;
+                }
+
+                &.deactivate {
+                    pointer-events: none;
                 }
 
                 &:hover {
                     cursor: pointer;
                     color: $selected-color;
-                }
+                }  
             }
         }
     }
