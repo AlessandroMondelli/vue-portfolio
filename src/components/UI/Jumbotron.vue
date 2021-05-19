@@ -1,11 +1,14 @@
 <template>
     <div id="home-section">
         <div id="jumbotron">
-            <h1>jr. full stack web developer</h1>
+            <h1>
+                <span id="typed-text">{{ typeValue }}</span>
+                <span id="cursor-text" :class="{ 'typing': typeStatus }">&nbsp;</span>
+            </h1>
         </div>
         <div id="me-photo">
             <div id="photo-wrap"> 
-                <img src="@/assets/me_black_white.png" alt="foto Alessandro Mondelli">
+                <img :class="{ 'active': typeStatus }" src="@/assets/me_best.png" alt="foto Alessandro Mondelli">
             </div>
         </div>
         <div class="icon-link">
@@ -25,7 +28,56 @@ export default {
     data() {
         return {
             fontLinkedin: faLinkedin,
+            typeValue: '',
+            typeStatus: false,
+            typeArray: ['Alessandro Mondelli', 'jr. web developer'],
+            typingSpeed: 500,
+            erasingSpeed: 100,
+            newTextDelay: 150,
+            typeArrayIndex: 0,
+            charIndex: 0,
         }
+    },
+    methods: {
+        typeText() {
+            if(this.charIndex < this.typeArray[this.typeArrayIndex].length) { //Se il contatore delle lettere è minore della lunghezza della frase
+                if(!this.typeStatus) { //Se non si sta scrivendo
+                    this.typeStatus = true; //Attivo stato di scrittura
+                }
+
+                this.typeValue += this.typeArray[this.typeArrayIndex].charAt(this.charIndex); //Aggiungo lettera a frase prendendola dalla stringa in array, con posizione in charIndex
+                this.charIndex += 1; //Incremento charIndex
+
+                setTimeout(this.typeText, this.newTextDelay); //Richiamo funzione per aggiungere lettera ad array
+            } else { //Altrimenti
+                this.typeStatus = false; //Setto lo status di scrittura a false
+                setTimeout(this.eraseText, this.newTextDelay); //Richiamo funzione per eliminare testo
+            }
+        },
+        eraseText() {
+            if(this.charIndex > 0) { //Se il contatore delle lettere è maggiore di 0
+                if(!this.typeStatus) { //Se non si sta scrivendo
+                    this.typeStatus = true; //Attivo stato di scrittura
+                }
+
+                this.typeValue = this.typeArray[this.typeArrayIndex].substring(0, this.charIndex - 1); //Aggiungo a typeValue lettera di parola dell'array in reverse (eliminazione lettera per lettera)
+                this.charIndex -= 1; //Decremento contatore
+
+                setTimeout(this.eraseText, this.erasingSpeed); //Richiamo funzione erase
+            } else { //Altrimenti
+                this.typeStatus = false; //Setto lo status di scrittura a false
+                this.typeArrayIndex += 1; //Passo alla seconda frase
+
+                if(this.typeArrayIndex >= this.typeArray.length) { //Se il contatore non rapprensenta nessun valore dell'array
+                    this.typeArrayIndex = 0; //Riparto dal primo valore
+                }
+
+                setTimeout(this.typeText, this.typingSpeed); //Richiamo funzione per scrivere testo
+            }
+        }
+    },
+    created() {
+        setTimeout(this.typeText, this.newTextDelay + 200);
     }
 }
 </script>
@@ -47,8 +99,30 @@ export default {
             
             h1 {
                 text-transform: uppercase;
-                font-size: 52px;
+                font-size: $h1-font-size;
                 cursor: default;
+
+                span {
+
+                    &#cursor-text {
+                        width: 4px;
+                        margin-left: 3px;
+                        background-color: $secondary-color;
+                        animation: cursorBlink 1.2s infinite;    
+
+                        &.typing {
+                            animation: none;
+                        }
+                    }
+
+                    
+                }
+            }
+
+            @keyframes cursorBlink {
+                49% { background-color: $secondary-color; }
+                50% { background-color: transparent }
+                99% { background-color: transparent }
             }
         }
 
@@ -59,8 +133,7 @@ export default {
             position: relative;
             
             #photo-wrap {
-                width: 400px;
-                height: 400px;
+                @include imgWidthHeight(400px, 400px);
                 background-color: $secondary-color;
                 border-radius: 50%;
                 position: absolute;
@@ -73,6 +146,12 @@ export default {
                     margin-left: -50px;
                     position: relative;
                     bottom: 32%;
+                    filter: grayscale(100%);
+                    transition: $img-transition;
+
+                    &.active {
+                        filter: none;
+                    }
                 }
             }
             

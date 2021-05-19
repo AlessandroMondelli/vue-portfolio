@@ -66,6 +66,10 @@ p {
   margin: 10% auto;
 }
 
+.floated-container {
+  float: left;
+}  
+
 .icon-link {
     position: absolute;
     bottom: 1%;

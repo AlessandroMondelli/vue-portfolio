@@ -49,7 +49,6 @@ export default {
     .content-container {
 
         .floated-container {
-            float: left;
 
             &.project-list {
                 width: 35%;
