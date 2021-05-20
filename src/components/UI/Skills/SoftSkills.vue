@@ -9,7 +9,7 @@
 export default {
     data() {
         return {
-            softSkills: ["Orientamento all'obiettivo", "Team Working", "In continua formazione", "Spirito di Adattamento", "Problem Solving"],
+            softSkills: ["Orientamento all'obiettivo", "Team Working", "In continua formazione", "Spirito di Adattamento", "Problem Solving", "Capacità di lavorare in autonomia"],
         }
     }
 }

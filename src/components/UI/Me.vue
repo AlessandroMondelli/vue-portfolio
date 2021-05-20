@@ -3,11 +3,14 @@
         <h2 class="section-title">Chi sono?</h2>
         <div class="content-container">
             <p>Ciao, mi chiamo Alessandro.</p>
-            <p>Sono un Jr. Web Developer di 22 anni, amante dell'informatica e di tutto ciò che la riguarda, amo innovarmi ed imparare nuove tecnologie.</p>
-            <p>Sono diplomato come Tecnico Informatico  all'Istituto Tecnico Tecnologico "G. & M. Montani" e sono specializzato in Sviluppo Web Full Stack tramite Boolean Careers, un corso intensivo di 6 mesi dedicato alla programmazione web.</p>
+            <p>Sono un Jr. Web Developer di 22 anni, amante dell'informatica e di tutto ciò che la riguarda, sempre pronto all'innovazione e ad imparare nuove tecnologie.</p>
+            <p>Sono diplomato come Tecnico Informatico  all'Istituto Tecnico Tecnologico "G. & M. Montani" e specializzato in Sviluppo Web Full Stack tramite Boolean Careers, un corso intensivo di 6 mesi dedicato alla programmazione web.</p>
             <div id="instruction">
                 <a href="https://www.istitutomontani.gov.it/nuovo/it/" target="_blank" rel=”noopener”><img id="montani-logo" src="@/assets/logo_montani_nuovo_v4.png" alt="logo Montani" /></a>
                 <a href="https://www.boolean.careers/" target="_blank" rel="noopener"><img id="boolean-logo" src="@/assets/logo_boolean.png" alt="logo Boolean" /></a>
+            </div>
+            <div id="cv">
+                <a href="#" target="_blank">Scarica il mio CV</a>
             </div>
         </div>
     </div>
@@ -23,13 +26,13 @@ export default {
     .content-container {
 
         p {
-            margin-bottom: 35px;
+            margin-bottom: $margin-mid + 25;
         }
 
         #instruction {
             display: flex;
             justify-content: space-around;
-            margin-top: 50px;
+            margin-top: $margin-max;
 
             a {
                 width: 150px;
@@ -54,6 +57,25 @@ export default {
                 }
             }
             
+        }
+
+        #cv {
+            display: flex;
+            justify-content: center;
+            margin-top: $margin-max + 50px;
+
+            a {
+                font-size: 20px;
+                border: 1px solid $secondary-color;
+                padding: 5px 10px;
+                border-radius: 4px;
+                transition: $transition-time;
+                
+                &:hover {
+                    background-color: $button-color-hover;
+                    transform: scale(0.98);
+                }
+            }
         }
     }
 </style>

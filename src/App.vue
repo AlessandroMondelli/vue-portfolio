@@ -1,7 +1,13 @@
 <template>
   <div id="all-wrap">
-    <main-menu />
-    <router-view id="rendered-view"/>
+    <main-menu @sendRoute="getRoute" />
+    <div id="main-content">
+      <router-view id="rendered-view" v-slot="{ Component }">
+        <transition :name="componentTransition">
+          <component :is="Component"/>
+        </transition>
+      </router-view>
+    </div>
   </div>
 </template>
 
@@ -11,6 +17,24 @@ import MainMenu from "./components/layout/MainMenu.vue";
 export default {
   components: {
     MainMenu,
+  },
+  data() {
+    return {
+      componentActive: '',
+      componentsList: ['/', 'chi-sono', 'skills', 'progetti', 'contattami'],
+      componentTransition: "",
+    }
+  },
+  methods: {
+    getRoute(route) { //Prendo route ricevuta da MainMenu
+      if(this.componentsList.indexOf(this.componentActive) > this.componentsList.indexOf(route)) { //Se la route scelta si trova dopo di quella attuale
+        this.componentTransition = "slideBottom"; //Attivo slide bottom 
+      } else { //Altrimenti
+        this.componentTransition = "slideUp"; //Attivo slide up 
+      }
+
+      this.componentActive = route; //Aggiorno route attuale
+    }
   }
 }
 </script>
@@ -23,6 +47,7 @@ export default {
   margin: 0;
   box-sizing: border-box;  
   font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
 }
 
 .clearfix::after {
@@ -41,6 +66,11 @@ h4 {
 
 p {
   font-size: $p-font-size;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .section-title {
@@ -80,5 +110,73 @@ p {
         color: $secondary-color;
         transition: $transition-time;
     }
+}
+
+#main-content {
+  background-color: $primary-color;
+  width: 95vw;
+  height: 100vh;
+}
+
+//Slide Up
+
+.slideUp-enter-active,
+.slideUp-leave-active {
+  transition: all 1s ease-out;
+}
+
+
+.slideUp-enter-to {
+  position: absolute;
+  bottom: 0;
+}
+
+
+.slideUp-enter-from {
+  position: absolute;
+  bottom: -100%;
+}
+
+
+.slideUp-leave-to {
+  position: absolute;
+  top: -100%;
+}
+
+
+.slideUp-leave-from {
+  position: absolute;
+  top: 0;
+}
+
+//Slide Bottom
+
+.slideBottom-enter-active,
+.slideBottom-leave-active {
+  transition: all 1s ease-out;
+}
+
+
+.slideBottom-enter-to {
+  position: absolute;
+  top: 0;
+}
+
+
+.slideBottom-enter-from {
+  position: absolute;
+  top: -100%;
+}
+
+
+.slideBottom-leave-to {
+  position: absolute;
+  bottom: -100%;
+}
+
+
+.slideBottom-leave-from {
+  position: absolute;
+  bottom: 0;
 }
 </style>

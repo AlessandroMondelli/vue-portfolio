@@ -57,7 +57,7 @@ export default {
                 }
 
                 input, textarea {
-                    padding: 5px 5px;
+                    padding: 10px 5px;
                     border-radius: 3px;
                     box-shadow: none;
                     transition: $transition-time;
@@ -80,8 +80,7 @@ export default {
                     font-size: 1rem;
                     cursor: pointer;
                     text-align: center;
-                    transition: background 250ms ease-in-out, 
-                                transform 150ms ease;
+                    transition: $transition-time;
                     -webkit-appearance: none;
                     -moz-appearance: none;
                     font-weight: 500;

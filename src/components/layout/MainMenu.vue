@@ -1,6 +1,6 @@
 <template>
     <nav class="menu">
-        <router-link v-for="link in links" :key="link" :to="link.route">
+        <router-link @click="sendRoute(link.route)" v-for="link in links" :key="link" :to="link.route">
             <font-awesome-icon class="menu-icon" :icon="link.icon" />
         </router-link>
     </nav>
@@ -27,6 +27,11 @@ export default {
                 { route: 'progetti', icon: faFolder }, 
                 { route: 'contattami', icon: faPencilAlt },  
             ]
+        }
+    },
+    methods: {
+        sendRoute(route) { 
+            this.$emit('send-route', route); //Invio route selezionata a App.vue
         }
     }
 }
