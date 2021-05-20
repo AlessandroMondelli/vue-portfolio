@@ -60,7 +60,7 @@ export default {
         height: 500px;
 
         p {
-            margin-bottom: $margin-mid;
+            padding-bottom: $margin-mid;
             cursor: default;
         }
 

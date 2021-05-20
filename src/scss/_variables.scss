@@ -11,6 +11,16 @@ $h1-font-size: 52px;
 $h2-font-size: 32px;
 $h3-font-size: 26px;
 $h4-font-size: 24px;
+
+$h1-smartphone-font-size: 40px;
+$h2-smartphone-font-size: 32px;
+$h3-smartphone-font-size: 26px;
+$h4-smartphone-font-size: 24px;
+
+$smartphone-width-container: 100vw;
+$all-width-container: 95vw;
+$all-height-container: 100vh;
+
 $p-font-size: 22px;
 $transition-time: 0.2s;
 
@@ -24,6 +34,9 @@ $icon-size: 28px;
 //Jumbo
 $img-transition: 0.6s;
 
+$smartphone-width: 98%;
+
+
 //Skills
 $bar-width: 60%;
 $bar-height: 20px;
@@ -33,5 +46,7 @@ $inner-bar-primary-color: #1d1c1ca9;
 $form-box-shadow-color: #000000;
 $button-color-hover: #524c4c;
 
-
-
+//Media Query
+$smartphone-min-breakpoint: 320px;
+$smartphone-max-breakpoint: 767px;
+$tablet-max-breakpoint: 1023px;

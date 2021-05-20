@@ -26,7 +26,8 @@ export default {
                 { route: 'skills', icon: faBookOpen }, 
                 { route: 'progetti', icon: faFolder }, 
                 { route: 'contattami', icon: faPencilAlt },  
-            ]
+            ],
+            mobileView: false,
         }
     },
     methods: {
@@ -72,5 +73,11 @@ export default {
         }
     }
 
+    @media (max-width: $smartphone-max-breakpoint) {
+        .menu {
+            display: none;
+        }
+    }
 
+   
 </style>

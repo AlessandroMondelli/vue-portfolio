@@ -84,8 +84,7 @@ a {
 }
 
 #rendered-view {
-  width: 95vw;
-  height: 100vh;
+  height: $all-height-container;
   overflow: hidden;
   background-color: $primary-color;
   color: $secondary-color;
@@ -114,7 +113,7 @@ a {
 
 #main-content {
   background-color: $primary-color;
-  width: 95vw;
+  width: inherit;
   height: 100vh;
 }
 
@@ -178,5 +177,18 @@ a {
 .slideBottom-leave-from {
   position: absolute;
   bottom: 0;
+}
+
+//Media query
+@media (max-width: $smartphone-max-breakpoint) {
+  #rendered-view {
+    width: $smartphone-width-container;
+  }
+}
+
+@media (min-width: $smartphone-max-breakpoint + 1) {
+  #rendered-view {
+    width: $all-width-container;
+  }
 }
 </style>

@@ -94,12 +94,10 @@ export default {
 
         #jumbotron {
             display: inline-block;
-            width: 58%;
             margin-left: 2%;
             
             h1 {
                 text-transform: uppercase;
-                font-size: $h1-font-size;
                 cursor: default;
 
                 span {
@@ -127,7 +125,6 @@ export default {
         }
 
         #me-photo {
-            display: inline-block;
             width: 40%;
             height: 100vh;
             position: relative;
@@ -162,6 +159,34 @@ export default {
             &:hover {
                 color: $linkedin-icon-color;
             }
+        }
+    }
+
+    @media (max-width: $smartphone-max-breakpoint) {
+        #jumbotron {
+            width: $smartphone-width;
+
+            h1 {
+                font-size: $h1-smartphone-font-size;
+            }
+        }
+
+        #me-photo {
+            display: none;
+        }
+    }
+
+    @media (min-width: $smartphone-max-breakpoint + 1) {
+        #jumbotron {
+            width: 58%;
+
+            h1 {
+                font-size: $h1-font-size;
+            }
+        }
+
+        #me-photo {
+            display: inline-block;
         }
     }
 </style>
