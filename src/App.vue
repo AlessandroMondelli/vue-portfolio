@@ -2,7 +2,7 @@
   <div id="all-wrap">
     <main-menu @sendRoute="getRoute" />
     <div id="main-content">
-      <router-view id="rendered-view" v-slot="{ Component }">
+      <router-view id="rendered-view" :class= componentActive v-slot="{ Component }">
         <transition :name="componentTransition">
           <component :is="Component"/>
         </transition>
@@ -56,18 +56,6 @@ export default {
   clear: both;
 }
 
-h3 {
-  font-size: $h3-font-size;
-}
-
-h4 {
-  font-size: $h4-font-size;
-}
-
-p {
-  font-size: $p-font-size;
-}
-
 a {
   color: inherit;
   text-decoration: none;
@@ -84,8 +72,6 @@ a {
 }
 
 #rendered-view {
-  height: $all-height-container;
-  overflow: hidden;
   background-color: $primary-color;
   color: $secondary-color;
 }
@@ -101,8 +87,6 @@ a {
 
 .icon-link {
     position: absolute;
-    bottom: 1%;
-    right: 1%;
 
     .inner-icon {
         font-size: 40px;
@@ -114,7 +98,7 @@ a {
 #main-content {
   background-color: $primary-color;
   width: inherit;
-  height: 100vh;
+  height: $all-height-container;
 }
 
 //Slide Up
@@ -181,14 +165,99 @@ a {
 
 //Media query
 @media (max-width: $smartphone-max-breakpoint) {
-  #rendered-view {
-    width: $smartphone-width-container;
+  #all-wrap {
+    flex-direction: column;
+
+    h2 {
+      font-size: $h2-smartphone-font-size;
+    }
+
+    h3 {
+      font-size: $h3-smartphone-font-size;
+    }
+
+    h4 {
+      font-size: $h4-smartphone-font-size;
+    }
+
+    p {
+      font-size: $p-smartphone-font-size;
+    }
+
+    #rendered-view {
+      width: $smartphone-width-container;
+      height: $smartphone-height-container;
+      overflow-y: scroll;
+      
+      &:not(.chi-sono, .skills, .progetti, .contattami) {
+        overflow-y: hidden;
+      }
+    }
+  }
+
+  .icon-link {
+    bottom: 12%;
+    right: 2%;
   }
 }
 
 @media (min-width: $smartphone-max-breakpoint + 1) {
   #rendered-view {
-    width: $all-width-container;
+      width: $all-width-container;
+      height: $all-height-container;
+    }
+
+  .icon-link {
+    bottom: 2%;
+    right: 2%;
+  }
+}
+
+@media (max-width: $tablet-max-breakpoint) {
+    h2 {
+      font-size: $h2-smartphone-font-size;
+    }
+
+    h3 {
+      font-size: $h3-smartphone-font-size;
+    }
+
+    h4 {
+      font-size: $h4-smartphone-font-size;
+    }
+
+    p {
+      font-size: $p-smartphone-font-size;
+    }
+
+    #rendered-view {
+      overflow-y: scroll;
+    }
+}
+
+@media (min-width: $tablet-max-breakpoint + 1) {
+  #all-wrap {
+    flex-direction: row;
+
+    #rendered-view {
+      overflow-y: auto;
+    }
+
+    h2 {
+      font-size: $h2-font-size;
+    }
+
+    h3 {
+      font-size: $h3-font-size;
+    }
+
+    h4 {
+      font-size: $h4-font-size;
+    }
+
+    p {
+      font-size: $p-font-size;
+    }
   }
 }
 </style>

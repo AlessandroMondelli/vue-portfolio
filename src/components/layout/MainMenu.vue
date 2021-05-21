@@ -1,5 +1,5 @@
 <template>
-    <nav class="menu">
+    <nav class="menu" :class="{ lg:  windowSize > 767, mobile: windowSize < 768 }">
         <router-link @click="sendRoute(link.route)" v-for="link in links" :key="link" :to="link.route">
             <font-awesome-icon class="menu-icon" :icon="link.icon" />
         </router-link>
@@ -27,25 +27,35 @@ export default {
                 { route: 'progetti', icon: faFolder }, 
                 { route: 'contattami', icon: faPencilAlt },  
             ],
-            mobileView: false,
+            windowSize: '',
         }
     },
     methods: {
         sendRoute(route) { 
             this.$emit('send-route', route); //Invio route selezionata a App.vue
+        },
+        myEventHandler() {
+            this.windowSize = window.innerWidth;
         }
-    }
+    },
+    mounted() {
+        this.windowSize = window.innerWidth; //Prendo larghezza schermo iniziale
+
+        this.$nextTick(() => {
+            window.addEventListener("resize", this.myEventHandler); //Aggiungo Event listener per controllare larghezza schermo
+        });
+    },
+    unmounted() {
+        window.removeEventListener("resize", this.myEventHandler); //Rimuovo Eventi listener
+    },
 }
 </script>
 
 <style lang="scss" scoped>
     .menu {
-        width: 5vw;
-        height: 100vh;
+ 
         background-color: $secondary-color;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+
 
         a.router-link-active {
             
@@ -74,7 +84,29 @@ export default {
     }
 
     @media (max-width: $smartphone-max-breakpoint) {
-        .menu {
+        .lg.menu {
+            display: none;
+        }
+        .mobile.menu {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 100vw;
+            height: 10vh;
+            z-index: 10;
+        }
+    }
+
+    @media (min-width: $smartphone-max-breakpoint + 1) {
+        .lg.menu {
+            display: flex;
+            width: 5vw;
+            height: 100vh;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mobile.menu {
             display: none;
         }
     }

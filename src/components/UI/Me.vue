@@ -62,7 +62,7 @@ export default {
         #cv {
             display: flex;
             justify-content: center;
-            margin-top: $margin-max + 50px;
+            margin-top: $margin-max;
 
             a {
                 font-size: 20px;
@@ -77,5 +77,15 @@ export default {
                 }
             }
         }
+    }
+
+    @media (max-width: $smartphone-max-breakpoint) {
+        .section-wrap {
+            overflow: scroll;
+        }
+    }
+
+    @media (min-width: $smartphone-max-breakpoint + 1 ) and  (max-width: $tablet-max-breakpoint) {
+
     }
 </style>
