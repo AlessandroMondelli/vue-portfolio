@@ -24,7 +24,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
     @media (max-width: $smartphone-max-breakpoint) {
         .floated-container {
             

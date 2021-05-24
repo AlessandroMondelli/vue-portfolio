@@ -57,15 +57,14 @@ export default {
         flex-direction: column;
         align-items: center;
         position: relative;
-        height: 500px;
-
+        
         p {
             padding-bottom: $margin-mid;
             cursor: default;
         }
 
         video {
-            max-width: 85%;
+            max-width: 100%;
         }
     }
 
@@ -92,6 +91,16 @@ export default {
         100% {bottom: 100%;}
     }
 
+    @media (max-width: $smartphone-max-breakpoint) {
+        .project-description {
+            max-height: 500px;        
+        }
+    }
 
+    @media (min-width: $smartphone-max-breakpoint + 1) {
+        .project-description {
+            height: 500px;
+        }
+    }
     
 </style>

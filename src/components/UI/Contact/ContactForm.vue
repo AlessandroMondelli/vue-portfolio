@@ -3,19 +3,19 @@
         <form>
             <div class="form-control name">
                 <label>Nome</label>
-                <input type="text" name="nome" id="nome" placeholder="Inserisci il tuo nome" required />
+                <input type="text" name="nome" id="nome" required />
             </div>
             <div class="form-control last-name">
                 <label>Cognome</label>
-                <input type="text" name="cognome" id="cognome" placeholder="Inserisci il tuo cognome" required />
+                <input type="text" name="cognome" id="cognome" required />
             </div>
             <div class="form-control email">
                 <label>Email</label>
-                <input type="email" name="email" id="email" placeholder="Inserisci la tua email" required />
+                <input type="email" name="email" id="email" required />
             </div>
             <div class="form-control message">
                 <label>Messaggio</label>
-                <textarea type="text" rows="10" cols="30" name="messaggio" id="messaggio" placeholder="Scrivi qualcosa.." required />
+                <textarea type="text" rows="10" cols="25" name="messaggio" id="messaggio" required />
             </div>
             <div class="form-control submit">
                 <button id="submit">Invia</button>
@@ -36,20 +36,8 @@ export default {
         width: 75%;
         
         form {
-            display: grid;
-            grid-template-columns:  50% 50%;
-            grid-template-rows:  25% 25% 65% 25%;
-            align-items: center;
 
             .form-control{
-
-                &.message {
-                    grid-row-start: 3;
-                }
-
-                &.submit {
-                    grid-row-start: 4;
-                }
 
                 label {
                     display: block;
@@ -99,6 +87,49 @@ export default {
                     &:active {
                         transform: scale(0.99);
                     }
+                }
+            }
+        }
+    }
+
+    @media (max-width: $smartphone-max-breakpoint) {
+        form {
+            display: block;
+
+            .form-control {
+                margin-bottom: $margin-mid;
+            }
+        }
+    }
+
+    @media (min-width: $smartphone-max-breakpoint + 1) and (max-width: $tablet-max-breakpoint) {
+        form {
+
+            .form-control{
+
+                &.submit {
+                    grid-row-start: 3;
+                    justify-self: center;
+                }
+            }
+        }
+    }
+
+    @media (min-width: $smartphone-max-breakpoint + 1) {
+        form {
+            display: grid;
+            align-items: center;
+            grid-template-columns:  50% 50%;
+            grid-template-rows:  25% 25% 65% 25%;
+
+            .form-control{
+
+                &.message {
+                    grid-row-start: 3;
+                }
+
+                &.submit {
+                    grid-row-start: 3;
                 }
             }
         }

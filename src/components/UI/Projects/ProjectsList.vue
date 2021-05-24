@@ -60,4 +60,10 @@ export default {
             }
         }
     }
+
+    @media (max-width: $smartphone-max-breakpoint) {
+        ul {
+            margin-bottom: $margin-mid;
+        }
+    }
 </style>

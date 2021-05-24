@@ -46,8 +46,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .content-container {
+    .inner-icon {
 
+        &:hover {
+            color: $github-icon-color;
+        }
+    }
+
+    @media (max-width: $smartphone-max-breakpoint) {
+        .floated-container {
+            
+            &.project-list  {
+                width: 100%;
+                margin-bottom: $margin-mid;
+            }
+
+            &.project-description {
+                width: 100%;
+            }
+        }
+    }
+
+    @media (min-width: $smartphone-max-breakpoint + 1) {
         .floated-container {
 
             &.project-list {
@@ -57,15 +77,6 @@ export default {
             &.project-description {
                 width: 65%;
             }
-        }
-
-        
-    }
-
-    .inner-icon {
-
-        &:hover {
-            color: $github-icon-color;
         }
     }
 </style>
