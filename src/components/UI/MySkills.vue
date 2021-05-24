@@ -24,10 +24,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .content-container {
-        
+
+    @media (max-width: $smartphone-max-breakpoint) {
         .floated-container {
-            float: left;
+            
+            &.hard {
+                width: 100%;
+                margin-bottom: $margin-mid;
+            }
+
+            &.soft {
+                width: 100%;
+            }
+        }
+    }
+
+    @media (min-width: $smartphone-max-breakpoint + 1) {
+        .floated-container {
 
             &.hard {
                 width: 70%;

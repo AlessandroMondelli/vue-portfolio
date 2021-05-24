@@ -56,6 +56,10 @@ export default {
   clear: both;
 }
 
+h4 {
+  font-weight: 600;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -187,7 +191,7 @@ a {
     #rendered-view {
       width: $smartphone-width-container;
       height: $smartphone-height-container;
-      overflow-y: scroll;
+      overflow-y: auto;
       
       &:not(.chi-sono, .skills, .progetti, .contattami) {
         overflow-y: hidden;
@@ -231,17 +235,44 @@ a {
     }
 
     #rendered-view {
-      overflow-y: scroll;
+      overflow-y: auto;
     }
 }
 
+@media (max-width: $tablet-max-breakpoint + 1) {
+  #rendered-view {
+    overflow-y: auto;
+  }
+}
+
 @media (min-width: $tablet-max-breakpoint + 1) {
+
+  /** Scrollbar **/
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: $scrollbar-width;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: $scrollbar-track;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $scrollbar-thumb;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: $scrollbar-hover;
+  }
+
+  /**/
+
   #all-wrap {
     flex-direction: row;
-
-    #rendered-view {
-      overflow-y: auto;
-    }
 
     h2 {
       font-size: $h2-font-size;
@@ -260,4 +291,13 @@ a {
     }
   }
 }
+
+@media (min-width: $large-min-breakpoint) {
+  #rendered-view {
+      overflow-y: hidden;
+    }
+}
+
+
+
 </style>

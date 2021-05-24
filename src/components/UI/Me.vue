@@ -81,11 +81,7 @@ export default {
 
     @media (max-width: $smartphone-max-breakpoint) {
         .section-wrap {
-            overflow: scroll;
+            overflow: auto;
         }
-    }
-
-    @media (min-width: $smartphone-max-breakpoint + 1 ) and  (max-width: $tablet-max-breakpoint) {
-
     }
 </style>

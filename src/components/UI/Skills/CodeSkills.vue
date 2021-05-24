@@ -109,8 +109,48 @@ export default {
         transition: all 0.5s;
     }
 
-    .skills-wrapper {
+        .skill-value {
 
+        .skills-icon {
+            margin-right: $margin-min - 5;
+        }
+
+        .perc-bar-container {
+            height: $bar-height;
+
+            .perc-bar {
+                @include imgWidthHeight($bar-width, $bar-height);
+                margin-top: $margin-min - 5;
+                background-color: $secondary-color;
+
+                .inner-perc-bar {
+                    height: $bar-height;
+                    transition: $transition-time;
+                    background-color: $inner-bar-primary-color;
+                }
+            }        
+        }
+    }
+
+    @media (max-width: $smartphone-max-breakpoint) {
+        .skill-value {
+
+            p, .perc-bar-container {
+                display: block;
+            }
+
+            p {
+                margin-bottom: $margin-min;
+            }
+
+            .perc-bar-container {
+                width: 100%;
+                margin-bottom: $margin-mid;     
+            }
+        }
+    }
+
+    @media (min-width: $smartphone-max-breakpoint + 1) {
         .skill-value {
 
             p, .perc-bar-container {
@@ -121,26 +161,10 @@ export default {
                 margin-bottom: 20px;
                 width: 30%;
 
-                .skills-icon {
-                    margin-right: 5px;
-                }   
             }
 
             .perc-bar-container {
-                width: 70%;
-                height: 20px;
-
-                .perc-bar {
-                    @include imgWidthHeight($bar-width, $bar-height);
-                    margin-top: 5px;
-                    background-color: $secondary-color;
-
-                    .inner-perc-bar {
-                        height: 20px;
-                        transition: $transition-time;
-                        background-color: $inner-bar-primary-color;
-                    }
-                }        
+                width: 70%;      
             }
         }
     }

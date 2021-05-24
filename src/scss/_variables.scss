@@ -3,8 +3,13 @@ $primary-color: #1D1C1C;
 $secondary-color: #D3D3D3;
 $nav-icons-hover-color: #F2F2F2;
 $selected-color: #FFFFFF;
+
 $linkedin-icon-color: #3166C2;
 $github-icon-color: #000000;
+
+$scrollbar-track: #D3D3D3;
+$scrollbar-thumb: #1d1c1c59;
+$scrollbar-hover: #555;
 
 //Generals
 $h1-font-size: 52px;
@@ -31,6 +36,8 @@ $margin-min: 10px;
 $margin-mid: 25px;
 $margin-max: 50px;
 
+$scrollbar-width: 8px;
+
 //Nav
 $icon-size: 28px;
 
@@ -53,3 +60,4 @@ $button-color-hover: #524c4c;
 $smartphone-min-breakpoint: 320px;
 $smartphone-max-breakpoint: 767px;
 $tablet-max-breakpoint: 1023px;
+$large-min-breakpoint: 1366px;
