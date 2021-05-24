@@ -1,32 +1,92 @@
 <template>
     <div id="contact-form">
-        <form>
+        <form @submit.prevent="submitForm">
             <div class="form-control name">
                 <label>Nome</label>
-                <input type="text" name="nome" id="nome" required />
+                <input type="text" name="nome" id="nome" v-model.trim="name" @blur="validateName" :class="{ invalid: nameValidity == 'invalid' }" required />
+                <p v-if="nameValidity == 'invalid'" class="error">Inserisci un nome valido</p>
             </div>
             <div class="form-control last-name">
                 <label>Cognome</label>
-                <input type="text" name="cognome" id="cognome" required />
+                <input type="text" name="cognome" id="cognome" v-model.trim="lastName" @blur="validateLastName" :class="{ invalid: lastNameValidity == 'invalid' }" required />
+                <p v-if="lastNameValidity == 'invalid'" class="error">Inserisci un cognome valido</p>
             </div>
             <div class="form-control email">
                 <label>Email</label>
-                <input type="email" name="email" id="email" required />
+                <input type="email" name="email" id="email" v-model.trim="email" @blur="validateEmail" :class="{ invalid: emailValidity == 'invalid' }" required />
+                <p v-if="emailValidity == 'invalid'" class="error">Inserisci una email valida</p>
             </div>
             <div class="form-control message">
                 <label>Messaggio</label>
-                <textarea type="text" rows="10" cols="25" name="messaggio" id="messaggio" required />
+                <textarea type="text" rows="10" cols="25" name="messaggio" id="messaggio" v-model="message" @blur="validateMessage" :class="{ invalid: messageValidity == 'invalid' }" required />
+                <p v-if="messageValidity == 'invalid'" class="error">Inserisci un messaggio valido</p>
             </div>
             <div class="form-control submit">
                 <button id="submit">Invia</button>
+                <p v-if="errorState">Qualcosa è andato storto, riprova</p>
             </div>
         </form>
+
     </div>
 </template>
 
 <script>
 export default {
-    
+    data() {
+        return {
+            name: "",
+            nameValidity: "",
+            lastName: "",
+            lastNameValidity: "",
+            email: "",
+            emailValidity: "",
+            message: "",
+            messageValidity: "",
+            errorState: false,
+        }
+    },
+    methods: {
+        submitForm() {
+            if(this.nameValidity == 'valid' && this.lastNameValidity == 'valid' && this.emailValidity == 'valid' && this.messageValidity == 'valid') {
+                this.$emit('send-form', this.name, this.lastName, this.email, this.message);
+
+                this.name = "";
+                this.lastName = "";
+                this.email = "";
+                this.message = "";
+            } else {
+                this.errorState = true;
+            }
+        },
+        validateName() {
+            if(this.name == "" || this.name.length < 4) {
+                this.nameValidity = "invalid";
+            } else {
+                this.nameValidity = "valid";
+            }
+        },
+        validateLastName() {
+            if(this.lastName == "" || this.lastName.length < 4) {
+                this.lastNameValidity = "invalid";
+            } else {
+                this.lastNameValidity = "valid";
+            }
+        },
+        validateEmail() {
+            if(this.email == "") {
+                this.emailValidity = "invalid";
+            } else {
+                this.emailValidity = "valid";
+            }
+        },
+        validateMessage() {
+            if(this.message == "") {
+                this.messageValidity = "invalid";
+            } else {
+                this.messageValidity = "valid";
+            }
+        },
+    }
 }
 </script>
 
@@ -36,8 +96,9 @@ export default {
         width: 75%;
         
         form {
+            padding: 50px 0 50px;
 
-            .form-control{
+            .form-control {
 
                 label {
                     display: block;
@@ -55,8 +116,13 @@ export default {
                         outline: none;
                         outline-offset: none;
                     }
-                }
 
+                    &.invalid {
+                        outline: 1px solid $send-form-error;
+                        background-color: $background-form-error;
+                    }
+                }
+                
                 button {
                     display: inline-block;
                     border: none;
@@ -88,6 +154,21 @@ export default {
                         transform: scale(0.99);
                     }
                 }
+
+                .error {
+                    font-size: 16px;
+                    margin-top: $margin-min;
+                    margin-bottom: $margin-mid;
+                    overflow: visible;
+                }
+
+                &.submit {
+
+                    p {
+                        font-size: 18px;
+                        margin-top: $margin-mid;
+                    }
+                }
             }
         }
     }
@@ -105,7 +186,7 @@ export default {
     @media (min-width: $smartphone-max-breakpoint + 1) and (max-width: $tablet-max-breakpoint) {
         form {
 
-            .form-control{
+            .form-control {
 
                 &.submit {
                     grid-row-start: 3;
@@ -122,7 +203,10 @@ export default {
             grid-template-columns:  50% 50%;
             grid-template-rows:  25% 25% 65% 25%;
 
-            .form-control{
+            .form-control {
+                input, textarea {
+                    margin-left: 2px;
+                }
 
                 &.message {
                     grid-row-start: 3;

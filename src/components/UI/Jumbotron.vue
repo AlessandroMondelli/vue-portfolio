@@ -30,7 +30,7 @@ export default {
             fontLinkedin: faLinkedin,
             typeValue: '',
             typeStatus: false,
-            typeArray: ['Alessandro Mondelli', 'jr. web developer'],
+            typeArray: ['Alessandro Mondelli', 'jr. web developer', 'front-end', 'back-end'],
             typingSpeed: 500,
             erasingSpeed: 100,
             newTextDelay: 150,
