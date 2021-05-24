@@ -33,7 +33,7 @@ export default {
             osOpen: false,
             osSkills: [
                 { os: "Windows", perc: 90, icon: faWindows },
-                { os: "Linux", perc: 65, icon: faLinux },
+                { os: "Linux", perc: 70, icon: faLinux },
             ],
             fontArrow: faChevronRight,
         }

@@ -4,6 +4,7 @@
         <div class="content-container">
             <p>Ciao, mi chiamo Alessandro.</p>
             <p>Sono un Jr. Web Developer di 22 anni, amante dell'informatica e di tutto ciò che la riguarda, sempre pronto all'innovazione e ad imparare nuove tecnologie.</p>
+            <p>Risiedo a Fermo, nelle Marche e attualmente lavoro in Smartworking.</p>
             <p>Sono diplomato come Tecnico Informatico  all'Istituto Tecnico Tecnologico "G. & M. Montani" e specializzato in Sviluppo Web Full Stack tramite Boolean Careers, un corso intensivo di 6 mesi dedicato alla programmazione web.</p>
             <div id="instruction">
                 <a href="https://www.istitutomontani.gov.it/nuovo/it/" target="_blank" rel=”noopener”><img id="montani-logo" src="@/assets/logo_montani_nuovo_v4.png" alt="logo Montani" /></a>

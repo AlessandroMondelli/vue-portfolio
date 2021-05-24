@@ -43,10 +43,10 @@ export default {
                 { lang: "Bootstrap", perc: 70, icon: faBootstrap },
                 { lang: "JS", perc: 80, icon: faJs },
                 { lang: "JQuery", perc: 78, icon: faJs },
-                { lang: "Vue.js", perc: 75, icon: faVuejs },
+                { lang: "Vue.js", perc: 80, icon: faVuejs },
                 { lang: "PHP", perc: 65, icon: faPhp },
-                { lang: "Laravel", perc: 63, icon: faLaravel },
-                { lang: "MySql", perc: 60, icon: faDatabase },
+                { lang: "Laravel", perc: 65, icon: faLaravel },
+                { lang: "MySql", perc: 65, icon: faDatabase },
             ],
             fontArrow: faChevronRight,
         }

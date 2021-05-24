@@ -46,18 +46,20 @@ export default {
         }
     },
     methods: {
-        submitForm() {
-            if(this.nameValidity == 'valid' && this.lastNameValidity == 'valid' && this.emailValidity == 'valid' && this.messageValidity == 'valid') {
-                this.$emit('send-form', this.name, this.lastName, this.email, this.message);
+        submitForm() { //All'invio del form
+            if(this.nameValidity == 'valid' && this.lastNameValidity == 'valid' && this.emailValidity == 'valid' && this.messageValidity == 'valid') { //Verifico se i dati inseriti sono validi
+                this.$emit('send-form', this.name, this.lastName, this.email, this.message); //Invio al parent
 
-                this.name = "";
+                //Azzero campi di input
+                this.name = ""; 
                 this.lastName = "";
                 this.email = "";
                 this.message = "";
-            } else {
-                this.errorState = true;
+            } else { //Altrimenti
+                this.errorState = true; //Mostro messaggio di errore
             }
         },
+        //Funzioni di validazione
         validateName() {
             if(this.name == "" || this.name.length < 4) {
                 this.nameValidity = "invalid";
@@ -110,15 +112,14 @@ export default {
                     border-radius: 3px;
                     box-shadow: none;
                     transition: $transition-time;
+                    border: none;
 
                     &:focus {
-                        box-shadow: 0px 0px 4px 2px $form-box-shadow-color;
+                        box-shadow: 0px 0px 5px 2px $form-box-shadow-color;
                         outline: none;
-                        outline-offset: none;
                     }
 
                     &.invalid {
-                        outline: 1px solid $send-form-error;
                         background-color: $background-form-error;
                     }
                 }
@@ -151,7 +152,7 @@ export default {
                     }
 
                     &:active {
-                        transform: scale(0.99);
+                        transform: scale(0.90);
                     }
                 }
 

@@ -6,7 +6,7 @@
                 <projects-list @openProject="openSelected" :animate-status="animationBoolean"></projects-list>
             </div>
             <div class="floated-container project-description">
-                <projects-description @animateStatus="animationStatus" :project-description="description" :project-video="video"></projects-description>
+                <projects-description @animateStatus="animationStatus" :project-description="description" :project-langs="langs" :project-video="video"></projects-description>
             </div>
         </div>
         <div class="icon-link">
@@ -28,14 +28,16 @@ export default {
     data() {
         return {
             description: '',
+            langs: '',
             video: '',
             animationBoolean: '',
             githubLogo: faGithub,
         }
     },
     methods: {
-        openSelected(description, video) {
+        openSelected(description, langs, video) {
             this.description = description;
+            this.langs = langs;
             this.video = video;
         },
         animationStatus(animate) {

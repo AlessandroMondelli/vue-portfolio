@@ -22,6 +22,7 @@ import { faGitAlt } from '@fortawesome/free-brands-svg-icons'
 import { faFilm } from '@fortawesome/free-solid-svg-icons'
 import { faImages } from '@fortawesome/free-solid-svg-icons'
 import { faMicrosoft } from '@fortawesome/free-brands-svg-icons'
+import { faWordpress } from '@fortawesome/free-brands-svg-icons'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 export default {
@@ -35,6 +36,7 @@ export default {
             extraOpen: false,
             extraSkills: [
                 { extra: "GIT Versioning", perc: 85, icon: faGitAlt },
+                { extra: "Wordpress", perc: 75, icon: faWordpress },
                 { extra: "Adobe Premiere Pro", perc: 70, icon: faFilm },
                 { extra: "Adobe Photoshop", perc: 55, icon: faImages },
                 { extra: "Microsoft Office", perc: 70, icon: faMicrosoft },

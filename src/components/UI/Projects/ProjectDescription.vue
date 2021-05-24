@@ -3,6 +3,7 @@
         <div class="project-description">
             <div :class="{ active: animate == true }" class="transition-animation"></div>
             <p>{{ description }}</p>
+            <p class="languages">{{ langs }}</p>
             <video :src="video" autoplay loop></video>
         </div>
     </div>
@@ -10,7 +11,7 @@
 
 <script>
 export default {
-    props: [ 'projectDescription', 'projectVideo' ],
+    props: [ 'projectDescription', 'projectLangs', 'projectVideo' ],
     data() {
         return {
             animate: false,
@@ -28,6 +29,7 @@ export default {
             if(newVal) {
                 setTimeout( () => {
                     this.description = newVal;
+                    this.langs = this.projectLangs;
                 }, 2000)
             }
         },
@@ -61,6 +63,10 @@ export default {
         p {
             padding-bottom: $margin-mid;
             cursor: default;
+        }
+
+        .languages {
+            margin-top: $margin-min;
         }
 
         video {
