@@ -124,51 +124,51 @@ export default {
                     }
                 }
                 
-                button {
-                    display: inline-block;
-                    border: none;
-                    padding: 10px 25px;
-                    margin: 0;
-                    text-decoration: none;
-                    background-color: $secondary-color;
-                    color: $primary-color;
-                    font-size: 1rem;
-                    cursor: pointer;
-                    text-align: center;
-                    transition: $transition-time;
-                    -webkit-appearance: none;
-                    -moz-appearance: none;
-                    font-weight: 500;
+                &.submit {
 
-                    &:hover, &:focus {
-                        background-color: $button-color-hover;
-                        color: $secondary-color;
+                    button {
+                        display: inline-block;
+                        border: none;
+                        padding: 10px 25px;
+                        margin: 0;
+                        text-decoration: none;
+                        background-color: $secondary-color;
+                        color: $primary-color;
+                        font-size: 1rem;
+                        cursor: pointer;
+                        text-align: center;
+                        transition: $transition-time;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        font-weight: 500;
 
+                        &:hover, &:focus {
+                            background-color: $button-color-hover;
+                            color: $secondary-color;
+
+                        }
+
+                        &:focus {
+                            outline: 1px solid $inner-bar-primary-color;
+                            outline-offset: -4px;
+                        }
+
+                        &:active {
+                            transform: scale(0.90);
+                        }
                     }
 
-                    &:focus {
-                        outline: 1px solid $inner-bar-primary-color;
-                        outline-offset: -4px;
-                    }
-
-                    &:active {
-                        transform: scale(0.90);
+                    p {
+                        font-size: 16px;
+                        margin-top: $margin-mid;
                     }
                 }
 
                 .error {
-                    font-size: 16px;
+                    font-size: 14px;
                     margin-top: $margin-min;
-                    margin-bottom: $margin-mid;
+                    margin-bottom: $margin-min;
                     overflow: visible;
-                }
-
-                &.submit {
-
-                    p {
-                        font-size: 18px;
-                        margin-top: $margin-mid;
-                    }
                 }
             }
         }

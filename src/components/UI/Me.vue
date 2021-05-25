@@ -11,7 +11,7 @@
                 <a href="https://www.boolean.careers/" target="_blank" rel="noopener"><img id="boolean-logo" src="@/assets/logo_boolean.png" alt="logo Boolean" /></a>
             </div>
             <div id="cv">
-                <a href="#" target="_blank">Scarica il mio CV</a>
+                <a href="./CV_Alessandro_Mondelli.pdf" target="_blank">Scarica il mio CV</a>
             </div>
         </div>
     </div>

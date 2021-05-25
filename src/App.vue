@@ -35,7 +35,12 @@ export default {
 
       this.componentActive = route; //Aggiorno route attuale
     }
-  }
+  },
+  created(){ 
+      if(this.$router.path !== '/'){ //Se al lifehook "Created()" la pagina non è l'homepage
+          this.$router.replace('/'); //Setto la pagina a homepage
+      }
+    }
 }
 </script>
 

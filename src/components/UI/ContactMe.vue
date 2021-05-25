@@ -36,23 +36,26 @@ export default {
         }
     },
     methods: {
-        getData(name, lastName, email, message) {
-            if(this.thanks) this.thanks = false;
+        getData(name, lastName, email, message) { //Prendo dati dal child
+            //Controllo se alcuni stati di successo/errore sono true
+            if(this.thanks) this.thanks = false; 
             if(this.error) this.error = false;
 
+            //Salvo dati su variabili locali
             this.clientName = name;
             this.clientLastName = lastName;
             this.clientEmail = email;
             this.clientMessage = message;
 
+            //Invio dati con chiamata POST al database Firebase
             axios.post('https://vue-portfolio-messages-default-rtdb.europe-west1.firebasedatabase.app/messages.json', {
                 name: this.clientName,
                 last_name: this.clientLastName,
                 email: this.clientEmail,
                 message: this.clientMessage,
-            }).then( () => {
+            }).then( () => { //Se i dati sono stati inviati, messaggio di ringraziamento
                 this.thanks = true;
-            }).catch( () => {
+            }).catch( () => { //Se i dati non sono stati inviati, messaggio di errore
                 this.error = true;
             });   
         }
