@@ -359,9 +359,5 @@ a {
   * {
     overflow: hidden;
   }
-
-  #rendered-view {
-    overflow-y: auto;
-  }
 }
 </style>
