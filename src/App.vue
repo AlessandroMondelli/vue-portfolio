@@ -75,7 +75,7 @@ a {
 
 .section-title {
   font-size: $h2-font-size;
-  margin-bottom: -$margin-max;
+  margin-bottom: $margin-max;
 }
 
 #all-wrap {
@@ -86,6 +86,7 @@ a {
     background-color: $primary-color;
     color: $secondary-color;
     overflow-y: auto;
+    padding: $margin-max + 50 0;
 
     .section-wrap {
       width: $container-width;
