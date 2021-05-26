@@ -14,7 +14,10 @@ $scrollbar-hover: #555;
 $send-form-error: #bb1515;
 $background-form-error: #bb151579;
 
-//Generals
+$container-width: 80%;
+$form-container-width: 75%;
+
+/* Font sizes */
 $h1-font-size: 52px;
 $h2-font-size: 32px;
 $h3-font-size: 26px;
@@ -25,20 +28,41 @@ $h2-smartphone-font-size: 30px;
 $h3-smartphone-font-size: 26px;
 $h4-smartphone-font-size: 24px;
 
+$p-font-size: 22px;
+$p-smartphone-font-size: 20px; 
+
+$icon-font-size: 40px;
+$projects-list-font-size: 24px;
+
+$error-form-font-font-size: 14px;
+/**/
+
+/** Font Weight **/
+$h4-font-weight: 600;
+$button-font-weight: 500;
+/**/
+
+/** Margins **/
+$margin-min: 10px;
+$margin-mid: 25px;
+$margin-max: 50px;
+/**/
+
+$projects-height: 500px;
+
+/** Containers **/
 $smartphone-width-container: 100vw;
 $smartphone-height-container: 90vh;
 
 $all-width-container: 95vw;
 $all-height-container: 100vh;
+/**/
 
-$p-font-size: 22px;
-$p-smartphone-font-size: 20px;
+$schools-width: 150px;
+
+$skill-animation-height: 500px;
 
 $transition-time: 0.2s;
-
-$margin-min: 10px;
-$margin-mid: 25px;
-$margin-max: 50px;
 
 $scrollbar-width: 8px;
 
@@ -47,7 +71,6 @@ $icon-size: 28px;
 
 //Jumbo
 $img-transition: 0.6s;
-
 $smartphone-width: 98%;
 
 

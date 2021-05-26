@@ -95,10 +95,10 @@ export default {
 <style lang="scss" scoped>
     #contact-form {
         margin-top: $margin-mid;
-        width: 75%;
+        width: $form-container-width;
         
         form {
-            padding: 50px 0 50px;
+            padding: $margin-max 0 $margin-max;
 
             .form-control {
 
@@ -108,7 +108,7 @@ export default {
                 }
 
                 input, textarea {
-                    padding: 10px 5px;
+                    padding: $margin-min $margin-min - 5;
                     border-radius: 3px;
                     box-shadow: none;
                     transition: $transition-time;
@@ -129,7 +129,7 @@ export default {
                     button {
                         display: inline-block;
                         border: none;
-                        padding: 10px 25px;
+                        padding: $margin-min $margin-max;
                         margin: 0;
                         text-decoration: none;
                         background-color: $secondary-color;
@@ -140,7 +140,7 @@ export default {
                         transition: $transition-time;
                         -webkit-appearance: none;
                         -moz-appearance: none;
-                        font-weight: 500;
+                        font-weight: $button-font-weight;
 
                         &:hover, &:focus {
                             background-color: $button-color-hover;
@@ -165,7 +165,7 @@ export default {
                 }
 
                 .error {
-                    font-size: 14px;
+                    font-size: $error-form-font-font-size;
                     margin-top: $margin-min;
                     margin-bottom: $margin-min;
                     overflow: visible;

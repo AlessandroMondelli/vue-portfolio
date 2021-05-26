@@ -70,12 +70,12 @@ export default {
 
         .menu-icon {
             font-size: $icon-size;
-            margin-bottom: 20px;
+            margin-bottom: $margin-mid - 5;
             transition: $transition-time;
             color: $primary-color;
 
             &:first-child {
-                margin-top: 25px;
+                margin-top: $margin-mid;
             }
 
             &:hover {
@@ -97,17 +97,15 @@ export default {
             position: fixed;
             top: 0;
             right: 0;
-            width: 100vw;
-            height: 10vh;
             z-index: 10;
+            @include imgWidthHeight(100vw, 10vh);
         }
     }
 
     @media (min-width: $smartphone-max-breakpoint + 1) {
         .lg.menu {
             display: flex;
-            width: 5vw;
-            height: 100vh;
+            @include imgWidthHeight(5vw, 100vh);
             flex-direction: column;
         }
 

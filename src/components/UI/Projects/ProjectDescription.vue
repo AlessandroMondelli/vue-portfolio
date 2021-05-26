@@ -78,10 +78,9 @@ export default {
     .transition-animation {
         position: absolute;
         bottom: 100%;
-        height: 110%;
-        width: 100%;
         border-bottom: 10px solid $secondary-color;
         background-color: $primary-color;
+        @include imgWidthHeight(100%, 110%);
         
         &.active {
             animation-name: moveUp;
@@ -100,14 +99,14 @@ export default {
 
     @media (max-width: $smartphone-max-breakpoint) {
         .project-description {
-            max-height: 500px;
+            max-height: $projects-height;
             overflow-y: hidden;        
         }
     }
 
     @media (min-width: $smartphone-max-breakpoint + 1) {
         .project-description {       
-            height: 500px;
+            height: $projects-height;
         }
     }
     

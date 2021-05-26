@@ -84,13 +84,13 @@ export default {
     }
 
     .skill-list-enter-to {
-        max-height: 500px;
+        max-height: $skill-animation-height;
         overflow: hidden;
         transition: all 0.5s;
     }
 
     .skill-list-leave-from {
-        max-height: 500px;
+        max-height: $skill-animation-height;
         overflow: hidden;
         transition: all 0.5s;
     }
@@ -150,7 +150,7 @@ export default {
             }
 
             p {
-                margin-bottom: 20px;
+                margin-bottom: $margin-mid - 5;
                 width: 30%;
 
             }

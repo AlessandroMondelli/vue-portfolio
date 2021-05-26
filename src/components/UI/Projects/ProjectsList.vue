@@ -39,14 +39,14 @@ export default {
             list-style-type: none;
 
             li:not(:last-child) {
-                font-size: 24px;
-                margin-bottom: 25px;
+                font-size: $projects-list-font-size;
+                margin-bottom: $margin-mid;
                 transition: ($transition-time - 0.1);
                 cursor: default;
 
                 &.highlight {
                     color: $selected-color;
-                    font-weight: 600;
+                    font-weight: $h4-font-weight;
                 }
 
                 &.deactivate {

@@ -36,7 +36,7 @@ export default {
             margin-top: $margin-max;
 
             a {
-                width: 150px;
+                width: $schools-width;
                 align-self: center;
                 text-align: center;
 
@@ -68,7 +68,7 @@ export default {
             a {
                 font-size: 20px;
                 border: 1px solid $secondary-color;
-                padding: 5px 10px;
+                padding: $margin-min - 5 $margin-min;
                 border-radius: 4px;
                 transition: $transition-time;
                 

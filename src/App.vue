@@ -47,6 +47,8 @@ export default {
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap');
 
+//Regole generali
+
 * {
   padding: 0;
   margin: 0;
@@ -61,7 +63,7 @@ export default {
 }
 
 h4 {
-  font-weight: 600;
+  font-weight: $h4-font-weight;
 }
 
 a {
@@ -69,39 +71,43 @@ a {
   text-decoration: none;
 }
 
+/**/
+
 .section-title {
   font-size: $h2-font-size;
-  margin-bottom: 50px;
+  margin-bottom: -$margin-max;
 }
 
 #all-wrap {
   display: flex;
   flex-wrap: nowrap;
-}
 
-#rendered-view {
-  background-color: $primary-color;
-  color: $secondary-color;
-}
+  #rendered-view {
+    background-color: $primary-color;
+    color: $secondary-color;
+    overflow-y: auto;
 
-.section-wrap {
-  width: 80%;
-  margin: 10% auto;
-}
+    .section-wrap {
+      width: $container-width;
+      margin: $margin-min auto;
 
-.floated-container {
-  float: left;
-}  
+      .floated-container {
+        float: left;
+      }     
+    }
 
-.icon-link {
-    position: absolute;
+    .icon-link {
+       position: absolute;
 
-    .inner-icon {
-        font-size: 40px;
+      .inner-icon {
+        font-size: $icon-font-size;
         color: $secondary-color;
         transition: $transition-time;
+      }
     }
+  }
 }
+
 
 //Media query
 @media (max-width: $smartphone-max-breakpoint) {
@@ -145,65 +151,65 @@ a {
 
   //Slide Up
 
-.slideUp-enter-active,
-.slideUp-leave-active {
-  transition: all 1s ease-out;
-}
+  .slideUp-enter-active,
+  .slideUp-leave-active {
+    transition: all 1s ease-out;
+  }
 
 
-.slideUp-enter-to {
-  position: absolute;
-  bottom: 0;
-}
+  .slideUp-enter-to {
+    position: absolute;
+    bottom: 0;
+  }
 
 
-.slideUp-enter-from {
-  position: absolute;
-  bottom: -85%;
-}
+  .slideUp-enter-from {
+    position: absolute;
+    bottom: -85%;
+  }
 
 
-.slideUp-leave-to {
-  position: absolute;
-  top: -85%;
-}
+  .slideUp-leave-to {
+    position: absolute;
+    top: -85%;
+  }
 
 
-.slideUp-leave-from {
-  position: absolute;
-  top: 0;
-}
+  .slideUp-leave-from {
+    position: absolute;
+    top: 0;
+  }
 
-//Slide Bottom
+  //Slide Bottom
 
-.slideBottom-enter-active,
-.slideBottom-leave-active {
-  transition: all 1s ease-out;
-}
-
-
-.slideBottom-enter-to {
-  position: absolute;
-  top: 0;
-}
+  .slideBottom-enter-active,
+  .slideBottom-leave-active {
+    transition: all 1s ease-out;
+  }
 
 
-.slideBottom-enter-from {
-  position: absolute;
-  top: -85%;
-}
+  .slideBottom-enter-to {
+    position: absolute;
+    top: 0;
+  }
 
 
-.slideBottom-leave-to {
-  position: absolute;
-  bottom: -85%;
-}
+  .slideBottom-enter-from {
+    position: absolute;
+    top: -85%;
+  }
 
 
-.slideBottom-leave-from {
-  position: absolute;
-  bottom: 0;
-}
+  .slideBottom-leave-to {
+    position: absolute;
+    bottom: -85%;
+  }
+
+
+  .slideBottom-leave-from {
+    position: absolute;
+    bottom: 0;
+  }
 }
 
 @media (min-width: $smartphone-max-breakpoint + 1) {
@@ -281,25 +287,21 @@ a {
 }
 
 @media (max-width: $tablet-max-breakpoint) {
-    h2 {
-      font-size: $h2-smartphone-font-size;
-    }
+  h2 {
+    font-size: $h2-smartphone-font-size;
+  }
 
-    h3 {
-      font-size: $h3-smartphone-font-size;
-    }
+  h3 {
+    font-size: $h3-smartphone-font-size;
+  }
 
-    h4 {
-      font-size: $h4-smartphone-font-size;
-    }
+  h4 {
+    font-size: $h4-smartphone-font-size;
+  }
 
-    p {
-      font-size: $p-smartphone-font-size;
-    }
-
-    #rendered-view {
-      overflow-y: auto;
-    }
+  p {
+    font-size: $p-smartphone-font-size;
+  }
 }
 
 @media (min-width: $tablet-max-breakpoint + 1) {
