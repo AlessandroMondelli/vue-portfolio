@@ -16,6 +16,7 @@ export default {
         return {
             animate: false,
             description: '',
+            langs: '',
             video: '',
         }
     },
@@ -99,12 +100,13 @@ export default {
 
     @media (max-width: $smartphone-max-breakpoint) {
         .project-description {
-            max-height: 500px;        
+            max-height: 500px;
+            overflow-y: hidden;        
         }
     }
 
     @media (min-width: $smartphone-max-breakpoint + 1) {
-        .project-description {
+        .project-description {       
             height: 500px;
         }
     }

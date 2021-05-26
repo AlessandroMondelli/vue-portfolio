@@ -2,3 +2,8 @@
     width: $width;
     height: $height;
 }
+
+@mixin iconPosition($right, $bottom) {
+    right: $right;
+    bottom: $bottom;
+}

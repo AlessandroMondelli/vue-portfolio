@@ -84,7 +84,7 @@ export default {
 
 <style lang="scss" scoped>
     #home-section {
-        height: 100vh;
+        height: 100%;
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -126,7 +126,7 @@ export default {
 
         #me-photo {
             width: 40%;
-            height: 100vh;
+            height: 100%;
             position: relative;
             
             #photo-wrap {
@@ -162,7 +162,7 @@ export default {
         }
     }
 
-    @media (max-width: $smartphone-max-breakpoint) {
+    @media (max-width: $tablet-max-breakpoint) {
         #jumbotron {
             width: $smartphone-width;
 
@@ -176,7 +176,7 @@ export default {
         }
     }
 
-    @media (min-width: $smartphone-max-breakpoint + 1) {
+    @media (min-width: $tablet-max-breakpoint + 1) {
         #jumbotron {
             width: 58%;
 

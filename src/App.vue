@@ -37,8 +37,8 @@ export default {
     }
   },
   created(){ 
-      if(this.$router.path !== '/'){ //Se al lifehook "Created()" la pagina non è l'homepage
-          this.$router.replace('/'); //Setto la pagina a homepage
+      if(this.$router.path !== process.env.BASE_URL){ //Se al lifehook "Created()" la pagina non è l'homepage
+          this.$router.replace(process.env.BASE_URL); //Setto la pagina a homepage
       }
     }
 }
@@ -52,7 +52,6 @@ export default {
   margin: 0;
   box-sizing: border-box;  
   font-family: 'Montserrat', sans-serif;
-  overflow: hidden;
 }
 
 .clearfix::after {
@@ -104,13 +103,47 @@ a {
     }
 }
 
-#main-content {
-  background-color: $primary-color;
-  width: inherit;
-  height: $all-height-container;
-}
+//Media query
+@media (max-width: $smartphone-max-breakpoint) {
+  #all-wrap {
+    flex-direction: column;
 
-//Slide Up
+    h2 {
+      font-size: $h2-smartphone-font-size;
+    }
+
+    h3 {
+      font-size: $h3-smartphone-font-size;
+    }
+
+    h4 {
+      font-size: $h4-smartphone-font-size;
+    }
+
+    p {
+      font-size: $p-smartphone-font-size;
+    }
+
+    #main-content {
+      margin-top: 10vh;
+    
+      #rendered-view {
+        width: $smartphone-width-container;
+        height: $smartphone-height-container;
+        padding: 15% 0 15%;
+        
+        &:not(.chi-sono, .skills, .progetti, .contattami) {
+          overflow-y: hidden;
+        }
+      }
+    }
+  }
+
+  .icon-link {
+    @include iconPosition(2%, 10%);
+  }
+
+  //Slide Up
 
 .slideUp-enter-active,
 .slideUp-leave-active {
@@ -126,13 +159,13 @@ a {
 
 .slideUp-enter-from {
   position: absolute;
-  bottom: -100%;
+  bottom: -85%;
 }
 
 
 .slideUp-leave-to {
   position: absolute;
-  top: -100%;
+  top: -85%;
 }
 
 
@@ -157,13 +190,13 @@ a {
 
 .slideBottom-enter-from {
   position: absolute;
-  top: -100%;
+  top: -85%;
 }
 
 
 .slideBottom-leave-to {
   position: absolute;
-  bottom: -100%;
+  bottom: -85%;
 }
 
 
@@ -171,43 +204,6 @@ a {
   position: absolute;
   bottom: 0;
 }
-
-//Media query
-@media (max-width: $smartphone-max-breakpoint) {
-  #all-wrap {
-    flex-direction: column;
-
-    h2 {
-      font-size: $h2-smartphone-font-size;
-    }
-
-    h3 {
-      font-size: $h3-smartphone-font-size;
-    }
-
-    h4 {
-      font-size: $h4-smartphone-font-size;
-    }
-
-    p {
-      font-size: $p-smartphone-font-size;
-    }
-
-    #rendered-view {
-      width: $smartphone-width-container;
-      height: $smartphone-height-container;
-      overflow-y: auto;
-      
-      &:not(.chi-sono, .skills, .progetti, .contattami) {
-        overflow-y: hidden;
-      }
-    }
-  }
-
-  .icon-link {
-    bottom: 12%;
-    right: 2%;
-  }
 }
 
 @media (min-width: $smartphone-max-breakpoint + 1) {
@@ -217,8 +213,70 @@ a {
     }
 
   .icon-link {
-    bottom: 2%;
-    right: 2%;
+    @include iconPosition(2%, 2%);
+  }
+
+
+  //Slide Up
+
+  .slideUp-enter-active,
+  .slideUp-leave-active {
+    transition: all 1s ease-out;
+  }
+
+
+  .slideUp-enter-to {
+    position: absolute;
+    bottom: 0;
+  }
+
+
+  .slideUp-enter-from {
+    position: absolute;
+    bottom: -100%;
+  }
+
+
+  .slideUp-leave-to {
+    position: absolute;
+    top: -100%;
+  }
+
+
+  .slideUp-leave-from {
+    position: absolute;
+    top: 0;
+  }
+
+  //Slide Bottom
+
+  .slideBottom-enter-active,
+  .slideBottom-leave-active {
+    transition: all 1s ease-out;
+  }
+
+
+  .slideBottom-enter-to {
+    position: absolute;
+    top: 0;
+  }
+
+
+  .slideBottom-enter-from {
+    position: absolute;
+    top: -100%;
+  }
+
+
+  .slideBottom-leave-to {
+    position: absolute;
+    bottom: -100%;
+  }
+
+
+  .slideBottom-leave-from {
+    position: absolute;
+    bottom: 0;
   }
 }
 
@@ -244,13 +302,13 @@ a {
     }
 }
 
-@media (max-width: $tablet-max-breakpoint + 1) {
-  #rendered-view {
-    overflow-y: auto;
-  }
-}
-
 @media (min-width: $tablet-max-breakpoint + 1) {
+
+  #main-content {
+    background-color: $primary-color;
+    width: inherit;
+    height: $all-height-container;
+  }
 
   /** Scrollbar **/
 
@@ -298,11 +356,8 @@ a {
 }
 
 @media (min-width: $large-min-breakpoint) {
-  #rendered-view {
-      overflow-y: hidden;
-    }
+  * {
+    overflow: hidden;
+  }
 }
-
-
-
 </style>

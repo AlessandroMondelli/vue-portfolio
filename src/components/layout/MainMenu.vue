@@ -53,8 +53,11 @@ export default {
 
 <style lang="scss" scoped>
     .menu {
- 
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
         background-color: $secondary-color;
+        align-items: center;
 
 
         a.router-link-active {
@@ -91,6 +94,9 @@ export default {
             display: flex;
             flex-direction: row;
             justify-content: space-around;
+            position: fixed;
+            top: 0;
+            right: 0;
             width: 100vw;
             height: 10vh;
             z-index: 10;
@@ -103,13 +109,10 @@ export default {
             width: 5vw;
             height: 100vh;
             flex-direction: column;
-            align-items: center;
         }
 
         .mobile.menu {
             display: none;
         }
     }
-
-   
 </style>
