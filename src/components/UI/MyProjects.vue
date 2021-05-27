@@ -48,10 +48,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .inner-icon {
+    #all-wrap {
+        
+        #rendered-view {
+            
+            .inner-icon {
 
-        &:hover {
-            color: $github-icon-color;
+                &:hover {
+                    color: $github-icon-color;
+                }
+            }
         }
     }
 

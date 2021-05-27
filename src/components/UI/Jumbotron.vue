@@ -83,85 +83,89 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    #home-section {
-        height: 100%;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        align-content: space-around;
-        position: relative;
+    #all-wrap {
         
+        #rendered-view {
 
-        #jumbotron {
-            display: inline-block;
-            margin-left: 2%;
-            
-            h1 {
-                text-transform: uppercase;
-                cursor: default;
+            #home-section {
+                height: 100%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                align-content: space-around;
+                
 
-                span {
+                #jumbotron {
+                    display: inline-block;
+                    margin-left: 2%;
+                    
+                    h1 {
+                        text-transform: uppercase;
+                        cursor: default;
 
-                    &#cursor-text {
-                        width: 4px;
-                        margin-left: 3px;
-                        background-color: $secondary-color;
-                        animation: cursorBlink 1.2s infinite;    
+                        span {
 
-                        &.typing {
-                            animation: none;
+                            &#cursor-text {
+                                width: 4px;
+                                margin-left: 3px;
+                                background-color: $secondary-color;
+                                animation: cursorBlink 1.2s infinite;    
+
+                                &.typing {
+                                    animation: none;
+                                }
+                            }
+
+                            
                         }
                     }
 
+                    @keyframes cursorBlink {
+                        49% { background-color: $secondary-color; }
+                        50% { background-color: transparent }
+                        99% { background-color: transparent }
+                    }
+                }
+
+                #me-photo {
+                    width: 40%;
+                    height: 100%;
+                    position: relative;
+                    
+                    #photo-wrap {
+                        @include imgWidthHeight(400px, 400px);
+                        background-color: $secondary-color;
+                        border-radius: 50%;
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+
+                        img {
+                            width: 100%;
+                            transform: scaleX(-1);
+                            margin-left: -50px;
+                            position: relative;
+                            bottom: 32%;
+                            filter: grayscale(100%);
+                            transition: $img-transition;
+
+                            &.active {
+                                filter: none;
+                            }
+                        }
+                    }
                     
                 }
-            }
 
-            @keyframes cursorBlink {
-                49% { background-color: $secondary-color; }
-                50% { background-color: transparent }
-                99% { background-color: transparent }
-            }
-        }
+                .inner-icon {
 
-        #me-photo {
-            width: 40%;
-            height: 100%;
-            position: relative;
-            
-            #photo-wrap {
-                @include imgWidthHeight(400px, 400px);
-                background-color: $secondary-color;
-                border-radius: 50%;
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-
-                img {
-                    width: 100%;
-                    transform: scaleX(-1);
-                    margin-left: -50px;
-                    position: relative;
-                    bottom: 32%;
-                    filter: grayscale(100%);
-                    transition: $img-transition;
-
-                    &.active {
-                        filter: none;
+                    &:hover {
+                        color: $linkedin-icon-color;
                     }
                 }
             }
-            
-        }
-
-        .inner-icon {
-
-            &:hover {
-                color: $linkedin-icon-color;
-            }
         }
     }
-
     @media (max-width: $tablet-max-breakpoint) {
         #jumbotron {
             width: $smartphone-width;
