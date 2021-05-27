@@ -23,6 +23,10 @@
             </div>
             <div class="form-control submit">
                 <button id="submit">Invia</button>
+                <p class="recaptcha-policy">Questo sito è protetto da reCAPTCHA e dalle  
+                    <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> e
+                    <a href="https://policies.google.com/terms" target="_blank">Termini di servizio</a> applicati da Google.
+                </p>
                 <p v-if="errorState">Qualcosa è andato storto, riprova</p>
             </div>
         </form>
@@ -31,6 +35,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
     data() {
         return {
@@ -48,13 +54,28 @@ export default {
     methods: {
         submitForm() { //All'invio del form
             if(this.nameValidity == 'valid' && this.lastNameValidity == 'valid' && this.emailValidity == 'valid' && this.messageValidity == 'valid') { //Verifico se i dati inseriti sono validi
-                this.$emit('send-form', this.name, this.lastName, this.email, this.message); //Invio al parent
+                this.$recaptcha('contattami').then((token) => { //Richiamo funzione per recaptcha e prendo il token generato
+                    axios.post('https://www.google.com/recaptcha/api/siteverify', null, { params: {
+                        secret: '***',response: token
+                    }}).then( (response) => { //Se la chiamata post è andata a buon fine
+                        if(response.data.success == true) {
+                            this.$emit('send-form', this.name, this.lastName, this.email, this.message); //Invio al parent
 
-                //Azzero campi di input
-                this.name = ""; 
-                this.lastName = "";
-                this.email = "";
-                this.message = "";
+                            //Azzero campi di input
+                            this.name = ""; 
+                            this.lastName = "";
+                            this.email = "";
+                            this.message = "";
+                        }
+                    }).catch( () => { //Se si è verificato un errore
+                        this.errorState = true;
+                    });   
+                })
+
+                setTimeout(() => {
+                    this.$router.push({ name: 'Home' }); //Invio utente a home
+                }, 2500)
+
             } else { //Altrimenti
                 this.errorState = true; //Mostro messaggio di errore
             }
@@ -155,6 +176,21 @@ export default {
 
                         &:active {
                             transform: scale(0.90);
+                        }
+                    }
+
+                    .recaptcha-policy {
+                        font-size: 12px;
+                        max-width: 50%;
+
+                        a {
+                            color: $secondary-color;
+                            text-decoration: underline;
+                            transition: $transition-time;
+
+                            &:hover {
+                                color: $selected-color;
+                            }
                         }
                     }
 

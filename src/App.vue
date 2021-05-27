@@ -62,6 +62,10 @@ export default {
   clear: both;
 }
 
+.grecaptcha-badge { 
+  visibility: hidden; 
+}
+
 h4 {
   font-weight: $h4-font-weight;
 }
