@@ -14,6 +14,9 @@
                 <p>Si è verificato un errore, riprova.</p>
             </div>
         </div>
+        <div class="icon-link">
+            <a href="https://www.iubenda.com/privacy-policy/90494957" target="_blank" class="iubenda-privacy">Privacy Policy</a>
+        </div>
     </div> 
 </template>
 
@@ -66,5 +69,17 @@ export default {
 <style lang="scss" scoped>
     .form-thanks, .form-error {
         margin-top: $margin-mid;
+    }
+
+    .icon-link {
+
+        a {
+            font-size: $error-form-font-font-size;
+            transition: $transition-time;
+
+            &:hover {
+                color: $nav-icons-hover-color;
+            }
+        }
     }
 </style>
